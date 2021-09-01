@@ -35,6 +35,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh './gradlew check'
             }
         }
         stage('Deploy') {
@@ -45,6 +46,12 @@ pipeline {
         
     }
     
+    
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
     
     
 }
