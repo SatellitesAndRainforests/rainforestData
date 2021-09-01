@@ -1,6 +1,6 @@
 pipeline {
     
-    agent { docker { image 'maven:3.3.3' } }
+    agent { none  }
     
     enviroment {
         DISABLE_AUTH = 'true'
@@ -24,6 +24,22 @@ pipeline {
                 echo "database engine is $DB_ENGINE}"
                 echo "DISABLE_AUTH os ${DISABLE_AUTH}"
                 sh 'echo "hello from next state"'
+            }
+        }
+            
+        stage('one') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
         
