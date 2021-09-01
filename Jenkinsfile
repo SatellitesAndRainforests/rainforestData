@@ -1,6 +1,6 @@
 pipeline {
     
-    agent { none  }
+    agent any
     
     enviroment {
         DISABLE_AUTH = 'true'
