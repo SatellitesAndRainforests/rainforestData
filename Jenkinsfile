@@ -2,10 +2,7 @@ pipeline {
     
     agent any
     
-    enviroment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE = 'postgresql'
-    }
+
     
     stages {
         
@@ -21,8 +18,6 @@ pipeline {
         
         stage('nextstate') {
             steps {
-                echo "database engine is $DB_ENGINE}"
-                echo "DISABLE_AUTH os ${DISABLE_AUTH}"
                 sh 'echo "hello from next state"'
             }
         }
