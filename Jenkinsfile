@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'echo "hello from jenkinsfile"'
+                sh '''
+                    echo "mutliline shelll steps work too"
+                    ls -lah
+                '''
             }
         }
     }
