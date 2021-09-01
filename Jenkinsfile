@@ -44,7 +44,7 @@ pipeline {
     post {
         
         always {
-            junit 'build/reports/**/*.xml'
+            echo 'allways post message'
         }
         
         success {
@@ -57,9 +57,6 @@ pipeline {
         
         failure {
             echo 'post fail message'   
-            mail    to: 'mark@rakocontrols.com',
-                    subject: "from jenkins pipleline post 'fail': ${currentBuild.fullDisplayName}",
-                    body: "from jenkins ${env.BUILD_URL}"
         }
         
         changed {
